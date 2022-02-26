@@ -4,6 +4,7 @@ pipeline {
     stage('') {
       steps {
         sh 'echo "This is React pipleine"'
+        sh 'npm start'
       }
     }
 
