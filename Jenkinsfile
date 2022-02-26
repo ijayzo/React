@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry ="project2team4/react"
-        dockerHubCreds = 'Docker_Credentials'
+        dockerHubCreds = 'Docker_Credential'
         dockerImage = ''
     }
   agent any
