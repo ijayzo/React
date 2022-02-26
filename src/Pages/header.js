@@ -1,8 +1,8 @@
 export default function Header(){
 
     return(
-        <idiv>
+        <div>
             
-        </idiv>
+        </div>
     )
 }
