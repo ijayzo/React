@@ -1,10 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Test') {
       steps {
         sh 'echo "This is React pipleine"'
-        sh 'npm start'
+        sh 'npm install'
+      }
+    }
+     stage('Test2') {
+      steps {
+        sh 'echo "Test passed"'
+        
       }
     }
 
