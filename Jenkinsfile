@@ -1,21 +1,52 @@
 pipeline {
+    environment {
+        registry ="project2team4/react"
+        dockerHubCreds = 'Docker_Credentials'
+        dockerImage = ''
+    }
   agent any
   stages {
-    stage('Test') {
+    stage('Test and Update package Json') {
       steps {
         sh 'echo "This is React pipleine"'
         sh 'npm install'
       }
     }
-     stage('Test2') {
+     stage('Build React Docker Image') {
+        when {
+            branch 'main'
+        }
       steps {
-        sh 'echo "Test passed"'
+        sh 'echo "Building Docker Images"'
+        script {
+          dockerImage = docker.build "$registry"
+        }
         
       }
     }
-    stage('Test3') {
+    stage('Delivering React Docker Image') {
+        when {
+          branch 'main'
+        }
       steps {
-        sh 'echo "Test passed"'
+        sh 'echo "Delivering React Image"'
+        script {
+          docker.withRegistry('', dockerHubCreds) {
+              dockerImage.push("$currentBuild.number")
+              dockerImage.push("latest")
+
+          }
+        }
+        
+      }
+    }
+    stage('Docker Image Delivered') {
+        when {
+          branch 'main'
+        }
+      steps {
+        sh 'echo "React Image Delivered To DockerHub"'
+        
         
       }
     }
