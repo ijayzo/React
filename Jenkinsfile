@@ -48,13 +48,13 @@ pipeline {
               sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./Kubernetes/deployment.yml'
               sh 'cat ./Kubernetes/deployment.yml'
                 step([$class: 'KubernetesEngineBuilder',
-                      projectId: 'united-button-342103'
+                      projectId: 'united-button-342103',
                       clusterName: 'pogi-firstcluster',
                       zone: 'us-central1-a',
                       manifestPattern: 'Kubernetes/',
                       credentialsId: 'united-button-342103',
                       verifyDeployments: true
-                     ])
+                ])
           }
         }
 
