@@ -10,6 +10,9 @@ import Home from './Pages/Home';
 import LogOut from './Pages/Logout';
 import CreateEmployee from './Pages/CreateEmployee';
 import GetAllEmployee from './Pages/GetAllEmployee';
+import CreateHotelPartner from './Pages/CreateHotelPartner';
+import GetAllHotelPartners from './Pages/GetAllHotels';
+import ProbCheck from './Pages/probeCheck';
 function App() {
   return (
     <div className="App">
@@ -26,8 +29,11 @@ function App() {
         <Route path='/logout' element= {<LogOut/>} />
         <Route path ="/createEmployee" element={<CreateEmployee/>}/>
         <Route path='/getAll' element={<GetAllEmployee/>} />
+        <Route path='/hotels/getAll' element={<GetAllHotelPartners/>} />
+        <Route path ="/createHotelPartner" element={<CreateHotelPartner/>}/>
+        <Route path ="/probe" element={<ProbCheck/>}/>
         {/*
-        <Route path ="/createManager" element={<CreateManager/>}/>
+       
     
         <Route path='/reimburse/create' element={<CreateReimbursement/>} />
         <Route path='/reimburse/get' element={<GetUserReimbursement/>} />

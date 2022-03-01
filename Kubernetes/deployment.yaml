@@ -20,11 +20,11 @@ spec:
         - containerPort: 3030
         livenessProbe:
             httpGet:
-                path: /
+                path: /probe
                 port: 3030
         readinessProbe:
             httpGet:
-              path: /
+              path: /probe
               port: 3030
               
 ---
@@ -35,7 +35,6 @@ metadata:
 spec:
   selector:
     app: react-deployment
-    type: NodePort
   ports:
   - port: 3030
     targetPort: 3030

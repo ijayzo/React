@@ -48,8 +48,10 @@ useEffect(() =>{
                                 { getToken === null ? <Nav.Link href="/login">LogIn</Nav.Link> : "" }
                                 <Nav.Link href="/createEmployee">Create Employee</Nav.Link>
                                 <Nav.Link href='/getAll'>Get All Employee</Nav.Link>
+                                <Nav.Link href='/hotels/getAll'>Get All Hotels</Nav.Link>
+                                { role === "ADMIN" ? <Nav.Link href="/createHotelPartner">Create Hotel Partner</Nav.Link>:"" }
                                 {/* 
-                                { role === "MANAGER" ? <Nav.Link href="/createManager">Create Manager</Nav.Link>:"" }
+                               
                                
                                 { role === "MANAGER" ?  <Nav.Link href='/reimburse/getAll'>Get All Reimbursemnt</Nav.Link>:""}
                                { role === "MANAGER" ? "":<Nav.Link href='/reimburse/get'>Get My Reimbursement</Nav.Link> }
