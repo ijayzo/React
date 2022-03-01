@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: project2team4-react
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: react-deployment
@@ -20,11 +20,11 @@ spec:
         - containerPort: 3030
         livenessProbe:
             httpGet:
-                path: /login
+                path: /
                 port: 3030
         readinessProbe:
             httpGet:
-              path: /login
+              path: /
               port: 3030
               
 ---
