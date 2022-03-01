@@ -20,11 +20,11 @@ spec:
         - containerPort: 3030
         livenessProbe:
             httpGet:
-                path: /probe
+                path: /
                 port: 3030
         readinessProbe:
             httpGet:
-              path: /probe
+              path: /
               port: 3030
               
 ---
