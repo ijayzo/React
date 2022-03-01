@@ -47,7 +47,7 @@ pipeline {
         steps {
               sh 'echo "Starting Deployment to Kubernetes"'
               sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./Kubernetes/deployment.yaml'
-              sh 'cat ./Kubernetes/deployment.yml'
+              sh 'cat ./Kubernetes/deployment.yaml'
                 step([$class: 'KubernetesEngineBuilder',
                       projectId: 'united-button-342103',
                       clusterName: 'pogi-firstcluster',
