@@ -54,7 +54,7 @@ pipeline {
                       manifestPattern: 'Kubernetes/',
                       credentialsId: 'united-button-342103',
                       verifyDeployments: true
-                ])
+                     ])
           }
         }
 
