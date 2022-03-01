@@ -41,11 +41,12 @@ pipeline {
         
       }
     }
+    
   
     stage('Deploy into Kubernetes') {
         steps {
               sh 'echo "Starting Deployment to Kubernetes"'
-              sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./Kubernetes/deployment.yml'
+              sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./Kubernetes/deployment.yaml'
               sh 'cat ./Kubernetes/deployment.yml'
                 step([$class: 'KubernetesEngineBuilder',
                       projectId: 'united-button-342103',
