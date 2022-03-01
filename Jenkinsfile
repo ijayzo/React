@@ -41,19 +41,9 @@ pipeline {
         
       }
     }
-    stage('Docker Image Delivered') {
-        when {
-          branch 'main'
-        }
-      steps {
-        sh 'echo "React Image Delivered To DockerHub"'
-        
-        
-      }
-    }
+  
     stage('Deploy into Kubernetes') {
-            
-          steps {
+        steps {
               sh 'echo "Starting Deployment to Kubernetes"'
               sh 'sed -i "s/%TAG%/$BUILD_NUMBER/g" ./Kubernetes/deployment.yml'
               sh 'cat ./Kubernetes/deployment.yml'
