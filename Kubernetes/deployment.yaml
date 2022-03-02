@@ -33,24 +33,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-service
+  labels:
+    app: react-service
+  name: react
+  namespace: default
 spec:
+  type: LoadBalancer
+  ports:
+    - name: "React"
+      port: 3030
+      targetPort: 3030
   selector:
     app: react-deployment
-  ports:
-  - port: 3030
-    targetPort: 3030
     
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: react-ingress-data
-  labels:
-    name: react-ingress
-spec:
-  defaultBackend:
-    service:
-      name: react-service
-      port: 
-        number: 3030
