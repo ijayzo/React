@@ -19,10 +19,12 @@ spec:
          ports: 
          - containerPort: 3030
          livenessProbe:
+            initialDelaySeconds: 6
             httpGet:
                 path: /login
                 port: 3030
          readinessProbe:
+            initialDelaySeconds: 6
             httpGet:
               path: /login
               port: 3030
