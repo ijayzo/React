@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -12,26 +13,27 @@ spec:
       labels:
         app: react-deployment
     spec:
-       containers:
-       - image: project2team4/react:%TAG%
-          env:
-            - name: REACT_APP_JAVA_URL
-              value: java://$(JAVA_SERVICE_HOST):$(JAVA_SERVICE_PORT)
-         imagePullPolicy: Always
-         name: react
-         ports: 
-         - containerPort: 3030
-         livenessProbe:
-            initialDelaySeconds: 6
-            httpGet:
-                path: /login
-                port: 3030
-         readinessProbe:
+      containers:
+      - image: project2team4/react:latest
+        env:
+          - name: REACT_APP_JAVA_URL
+            value: java://$(JAVA_SERVICE_HOST):$(JAVA_SERVICE_PORT)
+          - name: LOKI_URL
+            value: loki://$(LOKI_SERVICE_HOST):$(LOKI_SERVICE_PORT)
+        imagePullPolicy: Always
+        name: react
+        ports: 
+        - containerPort: 3030
+        livenessProbe:
             initialDelaySeconds: 6
             httpGet:
               path: /login
               port: 3030
-              
+        readinessProbe:
+            initialDelaySeconds: 6
+            httpGet:
+              path: /login
+              port: 3030
 ---
 apiVersion: v1
 kind: Service
@@ -49,3 +51,5 @@ spec:
   selector:
     app: react-deployment
     
+
+
