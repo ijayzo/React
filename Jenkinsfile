@@ -10,7 +10,7 @@ pipeline {
     stage('Test and Update package Json') {
       steps {
         sh 'echo "This is React pipleine"'
-        sh 'npm install'
+       
       }
     }
      stage('Build React Docker Image') {
