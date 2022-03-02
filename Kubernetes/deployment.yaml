@@ -22,10 +22,19 @@ spec:
             httpGet:
                 path: /
                 port: 3000
+                httpHeaders:
+                  - name: Custom-Header
+                    value: Awesome
+        initialDelaySeconds: 4
+        periodSeconds: 3
+                
+                  
         readinessProbe:
             httpGet:
               path: /
               port: 3000
+      initialDelaySeconds: 15
+      periodSeconds: 20
               
 ---
 apiVersion: v1
