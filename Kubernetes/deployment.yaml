@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: project2team4-react
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: react-deployment
@@ -13,7 +13,7 @@ spec:
         app: react-deployment
     spec:
       containers:
-      - image: project2team4/react:%TAG%
+      - image: project2team4/react:latest
         imagePullPolicy: Always
         name: react
         ports: 

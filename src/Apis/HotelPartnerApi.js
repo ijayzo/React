@@ -16,6 +16,6 @@ export const getAllHotelPartnersById = async(hotelId) => {
 }
 
 export const deleteHotel = async(hotelId) => {
-    const response = await axios.post("http://localhost:8080/hotel/delete", {hotelId})
+    const response = await axios.post("http://localhost:8080/hotel/delete", {hotelPartnerId:hotelId})
     return response.data
 }

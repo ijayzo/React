@@ -23,6 +23,7 @@ export default function GetAllHotelPartners(){
     }, [])
 
     const handleDelete = (hotelId) =>{
+        console.log(hotelId)
         deleteHotel(hotelId).then(response => {
             NotificationManager.success("Successfully Deleted")
 
