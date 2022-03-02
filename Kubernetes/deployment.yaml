@@ -37,7 +37,6 @@ metadata:
 spec:
   selector:
     app: react-deployment
-    type: NodePort
   ports:
   - port: 3030
     targetPort: 3030
