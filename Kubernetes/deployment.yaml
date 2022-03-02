@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - image: project2team4/react:latest
-       
         imagePullPolicy: Always
         name: react
         ports: 
         - containerPort: 3000
         livenessProbe:
+              initialDelaySeconds: 10
               httpGet:
                 path: /
                 port: 3000
