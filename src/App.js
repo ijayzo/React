@@ -14,6 +14,11 @@ import CreateHotelPartner from './Pages/CreateHotelPartner';
 import GetAllHotelPartners from './Pages/GetAllHotels';
 import ProbCheck from './Pages/probeCheck';
 function App() {
+
+console.log("***************")
+  console.log(`${process.env.REACT_APP_JAVA_URL}`)
+  console.log("*********************")
+
   return (
     <div className="App">
      <BrowserRouter>

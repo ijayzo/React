@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router'
 import Navigation from './Navigation';
 
 export default function Login(){
+  console.log("***************")
+  console.log(`${process.env.REACT_APP_JAVA_URL}`)
+  console.log("*********************")
 
   const roles = sessionStorage.getItem("role")
   const[login, setLogin] = useState({ username: "", password:"" })
