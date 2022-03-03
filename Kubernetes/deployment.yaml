@@ -17,7 +17,7 @@ spec:
       - image: project2team4/react:latest
         env:
           - name: REACT_APP_JAVA_URL
-            value: react://java-service:$(JAVA_SERVICE_PORT)
+            value: java://$(JAVA_SERVICE_HOST):$(JAVA_SERVICE_PORT)
           - name: LOKI_URL
             value: loki://$(LOKI_SERVICE_HOST):$(LOKI_SERVICE_PORT)
         imagePullPolicy: Always
