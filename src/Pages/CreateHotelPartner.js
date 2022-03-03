@@ -18,7 +18,6 @@ export default function CreateHotelPartner(){
         event.preventDefault()
           createHotelPartner(hotel).then(response => {
            NotificationManager.success("Succesfully Created Hotel Partner")
-         
           }).catch(error => {
             if(error.response.data){
               NotificationManager.error(error.response.data.message)
