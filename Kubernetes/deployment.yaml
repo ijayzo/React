@@ -1,4 +1,21 @@
 
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: react-service
+  name: react
+  namespace: default
+spec:
+  type: LoadBalancer
+  ports:
+    - name: "3030"
+      port: 3030
+      targetPort: 3030
+  selector:
+    app: react-deployment
+    
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,7 +34,7 @@ spec:
       - image: project2team4/react:latest
         env:
           - name: REACT_APP_JAVA_URL
-            value: java://$(JAVA_SERVICE_HOST):$(JAVA_SERVICE_PORT)
+            value: javast://$(JAVAST_SERVICE_HOST):$(JAVAST_SERVICE_PORT)
           - name: LOKI_URL
             value: loki://$(LOKI_SERVICE_HOST):$(LOKI_SERVICE_PORT)
         imagePullPolicy: Always
@@ -34,22 +51,7 @@ spec:
             httpGet:
               path: /login
               port: 3030
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: react-service
-  name: react
-  namespace: default
-spec:
-  type: LoadBalancer
-  ports:
-    - name: "3030"
-      port: 3030
-      targetPort: 3030
-  selector:
-    app: react-deployment
-    
+
+
 
 
