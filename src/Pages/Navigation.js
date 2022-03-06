@@ -39,7 +39,7 @@ useEffect(() =>{
         <div className="row">
             <div className="col-md-12">
               
-                    <Navbar bg="dark" variant="dark" expand="xxl" sticky="top">
+                    <Navbar bg="dark" variant="dark" expand="xxxl" sticky="top">
                         <Navbar.Brand href="/home">VACATION </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
@@ -49,6 +49,11 @@ useEffect(() =>{
                                 <Nav.Link href="/createEmployee">Create Employee</Nav.Link>
                                 <Nav.Link href='/getAll'>Get All Employee</Nav.Link>
                                 <Nav.Link href='/hotels/getAll'>Get All Hotels</Nav.Link>
+                                <Nav.Link href ="/flight">Get Flights</Nav.Link>
+                                <Nav.Link href="/createPackage">Create Package</Nav.Link>
+                                <Nav.Link href='/package/getAll'>Get All Packages</Nav.Link>
+                                <Nav.Link href = "/hotels/getAllEmp">Get All Hotel For Employee</Nav.Link>
+                                <Nav.Link href ="/mypackages">Get My Packages</Nav.Link>
                                 { role === "ADMIN" ? <Nav.Link href="/createHotelPartner">Create Hotel Partner</Nav.Link>:"" }
                                 {/* 
                                

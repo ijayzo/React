@@ -4,11 +4,9 @@ import React from "react"
 import { NotificationManager } from "react-notifications"
 import { Form, Button, Col, Container } from 'react-bootstrap';
 
+export default function CreatePackageSignUp(){
 
-
-
-export default function CreateEmployee(){
-    const[employee, setEmployee] = useState({firstName : '', lastName:"", username:"", email:"", password:"", role:"" })
+    const[employee, setEmployee] = useState({employeeId : '', packageId:"" })
 
       
 

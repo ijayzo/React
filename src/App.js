@@ -13,11 +13,17 @@ import GetAllEmployee from './Pages/GetAllEmployee';
 import CreateHotelPartner from './Pages/CreateHotelPartner';
 import GetAllHotelPartners from './Pages/GetAllHotels';
 import ProbCheck from './Pages/probeCheck';
+import GetAllFlights from './Pages/Flights';
+import QueryFlight from './Pages/QueryFlight';
+import CreatePackage from './Pages/CreatePackage';
+import GetAllPackages from './Pages/GetAllPackages';
+import GetAllHotelPartnersForEmployee from './Pages/GetAllHotelsEmp';
+import GetMyPackages from './Pages/GetMyPackage';
+import DisplayMyPackage from './Pages/DisplayPackage';
+import DisplayAllHotel from './Pages/DisplayHotel';
+
 function App() {
 
-console.log("***************")
-  console.log(`${process.env.REACT_APP_JAVA_URL}`)
-  console.log("*********************")
 
   return (
     <div className="App">
@@ -35,6 +41,14 @@ console.log("***************")
         <Route path='/hotels/getAll' element={<GetAllHotelPartners/>} />
         <Route path ="/createHotelPartner" element={<CreateHotelPartner/>}/>
         <Route path ="/probe" element={<ProbCheck/>}/>
+        <Route path ="/flight" element={<GetAllFlights/>} />
+        <Route path ="/queryFlights" element={<QueryFlight/>} />
+        <Route path="/createPackage" element = {<CreatePackage/>} />
+        <Route path="/package/getAll" element = {<GetAllPackages/>} />
+        <Route path="/hotels/getAllEmp" element={<GetAllHotelPartnersForEmployee/>} />
+        <Route path ="/mypackages" element={<GetMyPackages/>} />
+        <Route path = "/displayPackage" element={<DisplayMyPackage/>} />
+        <Route path ="/displayHotel" element={<DisplayAllHotel/>} />
         {/*
        
     

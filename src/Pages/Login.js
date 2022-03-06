@@ -6,10 +6,7 @@ import { useNavigate } from 'react-router'
 import Navigation from './Navigation';
 
 export default function Login(){
-  console.log("***************")
-  console.log(`${process.env.REACT_APP_JAVA_URL}`)
-  console.log("*********************")
-
+ 
   const roles = sessionStorage.getItem("role")
   const[login, setLogin] = useState({ username: "", password:"" })
   const[role, setRole] = useState(roles)
@@ -19,7 +16,6 @@ export default function Login(){
   const handleSubmit = (event) => {
     event.preventDefault()
     employeeLogin(login).then(response => {
-      console.log(response)
          if(response){
              sessionStorage.setItem("token", response.token)
             sessionStorage.setItem("role", response.role)
@@ -32,8 +28,6 @@ export default function Login(){
          }
          
       }).catch(error => {
-        console.log(error)
-        console.log(error.response)
         if(error.response.data){
             NotificationManager.error(error.response.data.message)
         }else{
