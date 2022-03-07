@@ -27,7 +27,7 @@ export default function GetAllHotelPartnersForEmployee(){
         createPackageSignUp(packageSignUp).then(response => {
             NotificationManager.success("Successfully Created Package")
         }).catch(error => {
-            NotificationManager.error('Error Occurred While Deleting')
+            NotificationManager.error('Error Occurred While Creating Package')
         })
       
     }
