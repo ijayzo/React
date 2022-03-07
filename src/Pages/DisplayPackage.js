@@ -12,15 +12,13 @@ export default function DisplayMyPackage(){
     const[packages , setPackages] = useState([])
     const navigate = useNavigate();
     const update = useLocation().state
-    console.log(update)
+
 
    
 
     useEffect(() => {
         getPackageByPackageId(update.packageId).then(response => {
-            console.log(response)
             setPackages([response])
-
         }).catch(error => {
             console.log(error)
         })

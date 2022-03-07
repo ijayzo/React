@@ -19,6 +19,8 @@ useEffect(() =>{
     if(userToken !== null){
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.defaults.headers.common['User'] = user
+    }else{
+        navigate("/login")
     }
    // else if(location.pathname !== "/" ) {
         
@@ -44,23 +46,28 @@ useEffect(() =>{
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto" class=".d-none">
-                               {getToken === null ? "" :<Nav.Link  href="/logout">LogOut</Nav.Link>}
-                                { getToken === null ? <Nav.Link href="/login">LogIn</Nav.Link> : "" }
-                                <Nav.Link href="/createEmployee">Create Employee</Nav.Link>
-                                <Nav.Link href='/getAll'>Get All Employee</Nav.Link>
-                                <Nav.Link href='/hotels/getAll'>Get All Hotels</Nav.Link>
-                                <Nav.Link href ="/flight">Get Flights</Nav.Link>
-                                <Nav.Link href="/createPackage">Create Package</Nav.Link>
-                                <Nav.Link href='/package/getAll'>Get All Packages</Nav.Link>
-                                <Nav.Link href = "/hotels/getAllEmp">Get All Hotel For Employee</Nav.Link>
-                                <Nav.Link href ="/mypackages">Get My Packages</Nav.Link>
-                                { role === "ADMIN" ? <Nav.Link href="/createHotelPartner">Create Hotel Partner</Nav.Link>:"" }
-                                {/* 
+                                 {getToken === null ? "" :<Nav.Link  href="/logout">LogOut</Nav.Link>}
+                                 { getToken === null ? <Nav.Link href="/login">LogIn</Nav.Link> : "" }
+                                    <Nav.Link href="/createEmployee">Create Employee</Nav.Link> 
+                                 { role ==="ADMIN" ? <Nav.Link href='/getAll'>Get All Employee</Nav.Link> : "" }
+                                 { role ==="ADMIN" ? <Nav.Link href='/hotels/getAll'>Get All Hotels</Nav.Link> : ""} 
+                                 {role === "ADMIN" ? <Nav.Link href="/createPackage">Create Package</Nav.Link> : ""}
+                                   {role === "EMPLOYEE" ? <Nav.Link href='/package/getAll'>Get All Packages</Nav.Link>: "" }
+                                    {role === "ADMIN" ? <Nav.Link href='/admin/packages'>Get All Packages</Nav.Link>:"" }
+                                    
                                
+                                 {role === "EMPLOYEE" ? <Nav.Link href ="/mypackages">Get My Packages</Nav.Link>: ""}
+                                 { role === "ADMIN" ? <Nav.Link href="/createHotelPartner">Create Hotel Partner</Nav.Link>:"" }
+                                 {/* 
                                
-                                { role === "MANAGER" ?  <Nav.Link href='/reimburse/getAll'>Get All Reimbursemnt</Nav.Link>:""}
-                               { role === "MANAGER" ? "":<Nav.Link href='/reimburse/get'>Get My Reimbursement</Nav.Link> }
-                                { role === "MANAGER" ? "":<Nav.Link href='/reimburse/create'>Create Reimbursement</Nav.Link> } */}
+                                         // MIGHT NEED
+                                         <Nav.Link href ="/flight">Get Flights</Nav.Link>
+                                         <Nav.Link href = "/hotels/getAllEmp">Get All Hotel For Employee</Nav.Link>
+
+                                         ************
+                                         { role === "MANAGER" ?  <Nav.Link href='/reimburse/getAll'>Get All Reimbursemnt</Nav.Link>:""}
+                                         { role === "MANAGER" ? "":<Nav.Link href='/reimburse/get'>Get My Reimbursement</Nav.Link> }
+                                         { role === "MANAGER" ? "":<Nav.Link href='/reimburse/create'>Create Reimbursement</Nav.Link> } */}
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>

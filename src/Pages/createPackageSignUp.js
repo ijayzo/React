@@ -23,7 +23,7 @@ export default function CreatePackageSignUp(){
             NotificationManager.error("Error while Creating Account")
             }
           })
-           console.log(employee)
+          
          
      }
  

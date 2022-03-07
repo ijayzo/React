@@ -21,6 +21,8 @@ import GetAllHotelPartnersForEmployee from './Pages/GetAllHotelsEmp';
 import GetMyPackages from './Pages/GetMyPackage';
 import DisplayMyPackage from './Pages/DisplayPackage';
 import DisplayAllHotel from './Pages/DisplayHotel';
+import DisplayAllFlights from './Pages/DisplayFlight';
+import GetAllPackagesADMIN from './Pages/GetAllPackageADMIN';
 
 function App() {
 
@@ -49,6 +51,8 @@ function App() {
         <Route path ="/mypackages" element={<GetMyPackages/>} />
         <Route path = "/displayPackage" element={<DisplayMyPackage/>} />
         <Route path ="/displayHotel" element={<DisplayAllHotel/>} />
+        <Route path ="/displayFlight" element={<DisplayAllFlights/>} />
+        <Route path ="/admin/packages" element={<GetAllPackagesADMIN/>} />
         {/*
        
     

@@ -12,12 +12,7 @@ export default function GetAllFlights(){
     const[flights , setFlights] = useState([])
     const update = useLocation().state
     const navigate = useNavigate();
-
-
-   console.log(update)
-
-
-   
+ 
 
     useEffect(() => {
         getAllFlight().then(response => {
@@ -29,7 +24,6 @@ export default function GetAllFlights(){
 
     const handleDelete = (flightId) =>{
         alert("Is this the flight you want for Your Holidays")
-        console.log(flightId)
         navigate("/hotels/getAllEmp", {state:{packageId: update.packageId,flightId:flightId }})
        
     }
@@ -37,7 +31,7 @@ export default function GetAllFlights(){
     return (
         <div>
 
-          <Button variant ="danger" onClick={()=> navigate("/queryFlights")}> QUERY FOR FLIGHT</Button>
+          <Button variant ="danger" onClick={()=> navigate("/queryFlights", {state:{packageId:update.packageId}})}> QUERY FOR FLIGHT</Button>
         
     
             <h1>AVAILABLE FLIGHTS</h1>
@@ -53,7 +47,7 @@ export default function GetAllFlights(){
                   <th> Arrival Date</th>
                   <th> Arrival Time</th>
                   <th> Arrival Airport</th>
-                  <th>GO </th>
+                  <th>Book Flight </th>
               </tr>
             </thead>
 

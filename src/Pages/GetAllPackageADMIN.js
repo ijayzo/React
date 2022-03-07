@@ -3,12 +3,12 @@ import { deleteEmployee, getAllEmployee } from "../Apis/employeeApi"
 import { useLocation , useNavigate} from "react-router"
 import Table from 'react-bootstrap/Table'
 import { NotificationManager } from "react-notifications"
-import { getAllPackages } from "../Apis/packageApi"
+import { deletePackage, getAllPackages } from "../Apis/packageApi"
 import { Form, Button, Col, Container } from 'react-bootstrap';
 
 
 
-export default function GetAllPackages(){
+export default function GetAllPackagesADMIN(){
     const[packages , setPackages] = useState([])
     const navigate = useNavigate();
     const update = useLocation().state
@@ -23,9 +23,13 @@ export default function GetAllPackages(){
         })
     }, [])
 
-    const handleDelete = (employeeId) =>{
-        alert("Is This the package you want for your vacation")
-        navigate("/flight", {state:{packageId:employeeId}})
+    const handleDelete = (employeePackageId) =>{
+      deletePackage(employeePackageId).then(response => {
+          NotificationManager.success("Successfuly Deleted Package")
+
+      }).catch(error => {
+          NotificationManager.error("Error While Deleting")
+      })
     }
 
     return (
@@ -107,7 +111,7 @@ export default function GetAllPackages(){
 
               <td>
                   {
-                      packages && packages.length > 0 ? packages.map(packageit => <div key={packageit.employeePackageId}><Button variant="primary" onClick={()=> {handleDelete(packageit.employeePackageId)}}>SELECT FLIGHT</Button></div>): ""
+                      packages && packages.length > 0 ? packages.map(packageit => <div key={packageit.employeePackageId}><Button variant="primary" onClick={()=> {handleDelete(packageit.employeePackageId)}}>DELETE</Button></div>): ""
                   }
               </td>
 

@@ -8,14 +8,12 @@ import { createPackage } from '../Apis/packageApi';
 
 export default function CreatePackage(){
 
-    const[packages, setPackage] = useState({packageCategory:"", travelDate:"", travelDestination:"",packageDays:"", packageStatus:"", packageCost:"", packageDescription:"" , totalPackageSignUp:""})
+    const[packages, setPackage] = useState({packageCategory:"STAYCATION", travelDate:"", travelDestination:"",packageDays:"", packageStatus:"DRAFT", packageCost:"", packageDescription:"" , totalPackageSignUp:""})
 
       
 
     const handleSubmit = (event) => {
-      console.log(packages)
-      
-        event.preventDefault()
+            event.preventDefault()
           createPackage(packages).then(response => {
            NotificationManager.success("Succesfully Created Package")
          

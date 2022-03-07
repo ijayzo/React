@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useLocation , useNavigate} from "react-router"
 import Table from 'react-bootstrap/Table'
 import { NotificationManager } from "react-notifications"
-import { getAllFlight } from "../Apis/flightApi"
+import { getAllFlight, getFlightsByFlightId } from "../Apis/flightApi"
 import { Form, Button, Col, Container } from 'react-bootstrap';
 
 
@@ -20,8 +20,8 @@ export default function DisplayAllFlights(){
    
 
     useEffect(() => {
-        getAllFlight().then(response => {
-            setFlights(response)
+        getFlightsByFlightId(update.flightId).then(response => {
+            setFlights([response])
         }).catch(error => {
             console.log(error)
         })
@@ -29,7 +29,6 @@ export default function DisplayAllFlights(){
 
     const handleDelete = (flightId) =>{
         alert("Is this the flight you want for Your Holidays")
-        console.log(flightId)
         navigate("/hotels/getAllEmp", {state:{packageId: update.packageId,flightId:flightId }})
        
     }

@@ -9,14 +9,11 @@ import { deleteHotel, getAllHotelPartners, getAllHotelPartnersById } from "../Ap
 export default function DisplayAllHotel(){
     const[hotels , setHotels] = useState([])
     const update = useLocation().state
-    console.log(update)
 
    
 
     useEffect(() => {
        getAllHotelPartnersById(update.hotelId).then(response => {
-            console.log(response)
-
             setHotels([response])
         }).catch(error => {
             console.log(error)

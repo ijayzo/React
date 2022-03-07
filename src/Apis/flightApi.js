@@ -17,3 +17,8 @@ export const getFlights= async(search) => {
     return response.data
 }
 
+export const getFlightsByFlightId= async(flightId) => {
+    const response = await axios.post(`${process.env.REACT_APP_JAVA_URL}/${request}/getOneFlight`, {flightId:flightId})
+    return response.data
+}
+

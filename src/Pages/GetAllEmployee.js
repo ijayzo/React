@@ -3,6 +3,7 @@ import { deleteEmployee, getAllEmployee } from "../Apis/employeeApi"
 import { useLocation , useNavigate} from "react-router"
 import Table from 'react-bootstrap/Table'
 import { NotificationManager } from "react-notifications"
+import { Form, Button, Col, Container } from 'react-bootstrap';
 
 
 
@@ -14,8 +15,6 @@ export default function GetAllEmployee(){
 
     useEffect(() => {
         getAllEmployee().then(response => {
-            console.log(response)
-
             setEmployees(response)
         }).catch(error => {
             console.log(error)
@@ -75,7 +74,7 @@ export default function GetAllEmployee(){
 
               <td>
                   {
-                      employees && employees.length > 0 ? employees.map(employee => <div key={employee.employeeId}><button variant="primary" onClick={()=> {handleDelete(employee.employeeId)}}>DELETE</button></div>): ""
+                      employees && employees.length > 0 ? employees.map(employee => <div key={employee.employeeId}><Button variant="primary" size ="sm" onClick={()=> {handleDelete(employee.employeeId)}}>DELETE</Button></div>): ""
                   }
               </td>
 

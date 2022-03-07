@@ -14,8 +14,6 @@ export default function GetAllHotelPartners(){
 
     useEffect(() => {
         getAllHotelPartners().then(response => {
-            console.log(response)
-
             setHotels(response)
         }).catch(error => {
             console.log(error)
@@ -23,7 +21,6 @@ export default function GetAllHotelPartners(){
     }, [])
 
     const handleDelete = (hotelId) =>{
-        console.log(hotelId)
         deleteHotel(hotelId).then(response => {
             NotificationManager.success("Successfully Deleted")
 

@@ -25,7 +25,6 @@ export default function CreateHotelPartner(){
             NotificationManager.error("Error while Creating HotelPartner")
             }
           })
-           console.log(hotel)
          
      }
  

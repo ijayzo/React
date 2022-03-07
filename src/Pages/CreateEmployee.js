@@ -8,7 +8,7 @@ import { Form, Button, Col, Container } from 'react-bootstrap';
 
 
 export default function CreateEmployee(){
-    const[employee, setEmployee] = useState({firstName : '', lastName:"", username:"", email:"", password:"", role:"" })
+    const[employee, setEmployee] = useState({firstName : '', lastName:"", username:"", email:"", password:"", role:"EMPLOYEE" })
 
       
 
@@ -25,7 +25,7 @@ export default function CreateEmployee(){
             NotificationManager.error("Error while Creating Account")
             }
           })
-           console.log(employee)
+         
          
      }
  

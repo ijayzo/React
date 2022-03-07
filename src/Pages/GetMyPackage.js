@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table'
 import { NotificationManager } from "react-notifications"
 import { getAllPackages } from "../Apis/packageApi"
 import { Form, Button, Col, Container } from 'react-bootstrap';
-import { getPackageSignUpByUserName } from "../Apis/packageSignUpApi"
+import { deletePackageSignUp, getPackageSignUpByUserName } from "../Apis/packageSignUpApi"
 
 
 
@@ -26,9 +26,13 @@ export default function GetMyPackages(){
         })
     }, [])
 
-    const handleDelete = (employeeId) =>{
-        alert("Is This the package you want for your vacation")
-        //navigate("/flight", {state:{packageId:employeeId}})
+    const handleDelete = (packageSignUpId) =>{
+        alert("Do you want to cancel your Reservation")
+       deletePackageSignUp(packageSignUpId).then(response => {
+           NotificationManager.success("Reservation Successfully Deleted")
+       }).catch(error => {
+           NotificationManager.error("Error While Deleting Reservation")
+       })
     }
 
     const handlePackage = (packageId) => {
@@ -43,8 +47,8 @@ export default function GetMyPackages(){
     }
 
 
-    const handleFlight = (packageId) => {
-        navigate("/displayPackage", {state:{packageId:packageId}})
+    const handleFlight = (flightId) => {
+        navigate("/displayFlight", {state:{flightId:flightId}})
 
     }
 
@@ -53,7 +57,7 @@ export default function GetMyPackages(){
     
             <h1>LIST OF ALL PACKAGES IN THE COMPANY</h1>
 
-            <Table  >
+            <Table>
             <thead>
               <tr>
                   <th>Username</th>
@@ -61,7 +65,7 @@ export default function GetMyPackages(){
                   <th> Hotel ID</th>
                   <th> Flight ID</th>
                   <th> SignUp Date</th>
-                  <th> DELETE</th>
+                  <th> Get Flight</th>
               </tr>
             </thead>
 
@@ -91,7 +95,7 @@ export default function GetMyPackages(){
 
               <td>
                   {
-                      packages && packages.length > 0 ? packages.map(packageit => <div key={packageit.packageSignUpId}><Button size="sm" onClick={()=> handlePackage(packageit.flightId)}>Flight</Button></div>): ""
+                      packages && packages.length > 0 ? packages.map(packageit => <div key={packageit.packageSignUpId}><Button size="sm" onClick={()=> handleFlight(packageit.flightId)}>Flight</Button></div>): ""
                   }
               </td>
 
@@ -105,7 +109,7 @@ export default function GetMyPackages(){
 
               <td>
                   {
-                      packages && packages.length > 0 ? packages.map(packageit => <div key={packageit.packageSignUpId}><Button variant="danger" size="sm" onClick={()=> {handleDelete(packageit.employeePackageId)}}>DELETE RESERVATION</Button></div>): ""
+                      packages && packages.length > 0 ? packages.map(packageit => <div key={packageit.packageSignUpId}><Button variant="danger" size="sm" onClick={()=> {handleDelete(packageit.packageSignUpId)}}>DELETE RESERVATION</Button></div>): ""
                   }
               </td>
             

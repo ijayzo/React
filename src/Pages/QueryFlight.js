@@ -5,6 +5,7 @@ import { NotificationManager } from "react-notifications"
 import { Form, Button, Col, Container } from 'react-bootstrap';
 import { getFlights, getFromAPI } from '../Apis/flightApi';
 import Table from 'react-bootstrap/Table'
+import {useLocation, useNavigate } from 'react-router-dom';
 
 
 
@@ -12,7 +13,10 @@ import Table from 'react-bootstrap/Table'
 
 export default function QueryFlight(){
     const [search, setSearch] = useState({to:"", from:""})
+    const [saveFlight, setSaveFlight] = useState({arrivalAirport:""})
     const[flights , setFlights] = useState([])
+    const navigate = useNavigate();
+    const update = useLocation().state
 
 
 
@@ -24,9 +28,8 @@ export default function QueryFlight(){
 
 
     const handleSubmit = (event) => {
-        event.preventDefault()
+          event.preventDefault()
           getFlights(search).then(response => {
-              console.log(response)
           setFlights(response)
           }).catch(error => {
             if(error.response.data){
@@ -48,9 +51,9 @@ export default function QueryFlight(){
     }
 
  
-    const handleDelete = (hotelId) =>{
+    const handleDelete = (flightId) =>{
         alert("Is this the flight you want for Your Holidays")
-        console.log(hotelId)
+        navigate("/hotels/getAllEmp", {state:{packageId: update.packageId,flightId:flightId }})
        
     }
 
@@ -94,7 +97,7 @@ export default function QueryFlight(){
 
 
 
-            <h1>LIST OF ALL HOTELS IN THE COMPANY</h1>
+            <h1> QUERY FLIGHTS</h1>
 
 <Table striped bordered hover>
 <thead>
@@ -107,7 +110,7 @@ export default function QueryFlight(){
       <th> Arrival Date</th>
       <th> Arrival Time</th>
       <th> Arrival Airport</th>
-      <th>GO </th>
+      <th>Book Flight </th>
   </tr>
 </thead>
 
@@ -166,7 +169,7 @@ export default function QueryFlight(){
 
   <td>
       {
-          flights && flights.length > 0 ? flights.map(flight => <div key={flight.id}><Button variant="primary" onClick={()=> {handleDelete(flight.flight_id)}}> LETS GO</Button></div>): ""
+          flights && flights.length > 0 ? flights.map(flight => <div key={flight.id}><Button variant="primary" onClick={()=> {handleDelete(flight.flight_id, flight)}}> LETS GO</Button></div>): ""
       }
   </td>
 
