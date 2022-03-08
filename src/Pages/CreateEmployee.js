@@ -10,7 +10,6 @@ import { Form, Button, Col, Container } from 'react-bootstrap';
 export default function CreateEmployee(){
     const[employee, setEmployee] = useState({firstName : '', lastName:"", username:"", email:"", password:"", role:"EMPLOYEE" })   
     const handleSubmit = (event) => {
-      
         event.preventDefault()
           createEmployee(employee).then(response => {
            NotificationManager.success("Succesfully Created Employee Account")      
