@@ -20,8 +20,7 @@ export default function CreateEmployee(){
             NotificationManager.error("Error while Creating Account")
             }
           })
-         
-         
+               
      }
  
      const handleChange = (event) => {
