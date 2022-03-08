@@ -15,7 +15,6 @@ export default function CreateEmployee(){
     const handleSubmit = (event) => {
       
         event.preventDefault()
-        alert("I am here")
           createEmployee(employee).then(response => {
            NotificationManager.success("Succesfully Created Employee Account")
          
