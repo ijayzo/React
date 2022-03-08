@@ -29,7 +29,8 @@ export default function Login(){
          
       }).catch(error => {
         if(error.response.data){
-            NotificationManager.error(error.response.data.message)
+        
+            NotificationManager.error(error.response.data.message == null ? "Wrong Username or Password": error.response.data.message)
         }else{
           NotificationManager.error("Error Occured While Loging In")
         }

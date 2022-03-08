@@ -40,5 +40,4 @@ spec:
       port: 3030
       targetPort: 3030
   selector:
-    app: react-deployment
-    
+    app: react-deployment  
