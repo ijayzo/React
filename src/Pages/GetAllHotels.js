@@ -3,6 +3,7 @@ import { useLocation , useNavigate} from "react-router"
 import Table from 'react-bootstrap/Table'
 import { NotificationManager } from "react-notifications"
 import { deleteHotel, getAllHotelPartners } from "../Apis/HotelPartnerApi"
+import { Form, Button, Col, Container } from 'react-bootstrap';
 
 
 
@@ -39,7 +40,7 @@ export default function GetAllHotelPartners(){
               <tr>
                   <th>Hotel Name</th>
                   <th>Hotel Location</th>
-                  <th> DELETE</th>
+                  <th> Delete</th>
               </tr>
             </thead>
 
@@ -60,7 +61,7 @@ export default function GetAllHotelPartners(){
     
               <td>
                   {
-                      hotels && hotels.length > 0 ? hotels.map(hotel => <div key={hotel.id}><button variant="primary" onClick={()=> {handleDelete(hotel.id)}}>DELETE</button></div>): ""
+                      hotels && hotels.length > 0 ? hotels.map(hotel => <div key={hotel.id}><Button variant="primary" size="sm" onClick={()=> {handleDelete(hotel.id)}}>DELETE</Button></div>): ""
                   }
               </td>
 

@@ -11,7 +11,7 @@ export const getAllHotelPartners = async() => {
 }
 
 export const getAllHotelPartnersById = async(hotelId) => {
-    const response = await axios.post(`${process.env.REACT_APP_JAVA_URL}/hotel/get`, {hotelId})
+    const response = await axios.post(`${process.env.REACT_APP_JAVA_URL}/hotel/get`, {hotelPartnerId:hotelId})
     return response.data
 }
 

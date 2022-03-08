@@ -106,7 +106,7 @@ export default function GetAllFlights(){
     
               <td>
                   {
-                      flights && flights.length > 0 ? flights.map(flight => <div key={flight.id}><Button variant="primary" size ="sm" onClick={()=> {handleDelete(flight.flight_id)}}> LETS GO</Button></div>): ""
+                      flights && flights.length > 0 ? flights.map(flight => <div key={flight.id}><Button variant="primary" size ="sm" onClick={()=> {handleDelete(flight.flight_id)}}> Book Flight</Button></div>): ""
                   }
               </td>
 

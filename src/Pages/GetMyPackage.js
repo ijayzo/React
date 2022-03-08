@@ -30,6 +30,7 @@ export default function GetMyPackages(){
         alert("Do you want to cancel your Reservation")
        deletePackageSignUp(packageSignUpId).then(response => {
            NotificationManager.success("Reservation Successfully Deleted")
+           navigate("/mypackages")
        }).catch(error => {
            NotificationManager.error("Error While Deleting Reservation")
        })
@@ -65,7 +66,7 @@ export default function GetMyPackages(){
                   <th> Hotel ID</th>
                   <th> Flight ID</th>
                   <th> SignUp Date</th>
-                  <th> Get Flight</th>
+                  <th> Delete Reservation</th>
               </tr>
             </thead>
 

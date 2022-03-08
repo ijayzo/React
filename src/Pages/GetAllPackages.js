@@ -44,7 +44,7 @@ export default function GetAllPackages(){
                   <th> Description</th>
                   <th> Duration</th>
                   <th> Total Sign Up</th>
-                  <th> DELETE</th>
+                  <th> FLIGHTS</th>
               </tr>
             </thead>
 

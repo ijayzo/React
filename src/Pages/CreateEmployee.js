@@ -15,6 +15,7 @@ export default function CreateEmployee(){
     const handleSubmit = (event) => {
       
         event.preventDefault()
+        alert("I am here")
           createEmployee(employee).then(response => {
            NotificationManager.success("Succesfully Created Employee Account")
          
@@ -108,7 +109,7 @@ export default function CreateEmployee(){
     </Form.Group>
 
     <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Email Address</Form.Label>
+    <Form.Label>Role</Form.Label>
     <Form.Select class="form-control selcls" name="role" value={employee.role} onChange={handleChange}>
         <option>EMPLOYEE</option>
         <option>ADMIN</option>

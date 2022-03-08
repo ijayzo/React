@@ -23,6 +23,7 @@ export default function GetAllHotelPartnersForEmployee(){
     }, [])
 
     const handleDelete = (hotelId) =>{
+        console.log("This is the HotelID" + hotelId)
         const packageSignUp = {packageId:update.packageId, flightId:update.flightId, username:user, hotelId:hotelId}
         createPackageSignUp(packageSignUp).then(response => {
             NotificationManager.success("Successfully Created Package")
@@ -42,7 +43,7 @@ export default function GetAllHotelPartnersForEmployee(){
               <tr>
                   <th>Hotel Name</th>
                   <th>Hotel Location</th>
-                  <th> DELETE</th>
+                  <th> Sign Up</th>
               </tr>
             </thead>
 

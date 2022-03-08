@@ -52,7 +52,7 @@ export default function DisplayAllFlights(){
                   <th> Arrival Date</th>
                   <th> Arrival Time</th>
                   <th> Arrival Airport</th>
-                  <th>GO </th>
+                 
               </tr>
             </thead>
 
@@ -107,13 +107,6 @@ export default function DisplayAllFlights(){
               </td>
 
              
-
-    
-              <td>
-                  {
-                      flights && flights.length > 0 ? flights.map(flight => <div key={flight.id}><Button variant="primary" size ="sm" onClick={()=> {handleDelete(flight.flight_id)}}> LETS GO</Button></div>): ""
-                  }
-              </td>
 
             </tbody>
 

@@ -169,7 +169,7 @@ export default function QueryFlight(){
 
   <td>
       {
-          flights && flights.length > 0 ? flights.map(flight => <div key={flight.id}><Button variant="primary" onClick={()=> {handleDelete(flight.flight_id, flight)}}> LETS GO</Button></div>): ""
+          flights && flights.length > 0 ? flights.map(flight => <div key={flight.id}><Button variant="primary" onClick={()=> {handleDelete(flight.flight_id, flight)}}> Book Flight</Button></div>): ""
       }
   </td>
 
