@@ -15,7 +15,7 @@ spec:
         app: react-deployment
     spec:
       containers:
-      - image: project2team4/react:latest
+      - image: project2team4/react:%TAG%
         env:
           - name: REACT_APP_JAVA_URL
             value:  http://34.133.185.13:8080
