@@ -25,8 +25,6 @@ spec:
         name: react
         ports: 
         - containerPort: 3030
-       
-    
 ---
 apiVersion: v1
 kind: Service
