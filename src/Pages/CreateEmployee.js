@@ -13,8 +13,7 @@ export default function CreateEmployee(){
       
         event.preventDefault()
           createEmployee(employee).then(response => {
-           NotificationManager.success("Succesfully Created Employee Account")
-         
+           NotificationManager.success("Succesfully Created Employee Account")      
           }).catch(error => {
             if(error.response.data){
               NotificationManager.error(error.response.data.message)
