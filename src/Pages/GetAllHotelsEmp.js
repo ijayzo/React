@@ -3,7 +3,7 @@ import { useLocation , useNavigate} from "react-router"
 import Table from 'react-bootstrap/Table'
 import { NotificationManager } from "react-notifications"
 import { deleteHotel, getAllHotelPartners } from "../Apis/HotelPartnerApi"
-import { Form, Button, Col, Container } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { createPackageSignUp } from "../Apis/packageSignUpApi"
 
 
