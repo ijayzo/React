@@ -8,9 +8,7 @@ import { Form, Button, Col, Container } from 'react-bootstrap';
 
 
 export default function CreateEmployee(){
-    const[employee, setEmployee] = useState({firstName : '', lastName:"", username:"", email:"", password:"", role:"EMPLOYEE" })
-
-      
+    const[employee, setEmployee] = useState({firstName : '', lastName:"", username:"", email:"", password:"", role:"EMPLOYEE" })   
     const handleSubmit = (event) => {
       
         event.preventDefault()
