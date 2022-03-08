@@ -10,8 +10,11 @@ pipeline {
     stage('Test and Update package Json') {
       steps {
         sh 'echo "This is React pipleine"'
-       
+        sh 'echo "Clean Previous Build"'
+        cleanWs()
+           
       }
+
     }
      stage('Build React Docker Image') {
         when {
